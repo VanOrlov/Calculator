@@ -13,10 +13,15 @@ function res(){
 
     let Q3 = +document.getElementById('Q3').value;
 
-    if (S != "" && h != "" && q != "" && Q2 != "" && Q3 != "" ) {
+    if (S != 0 && h != 0 && q != 0 && Q2 != 0 && Q3 != 0) {
         let result = document.getElementById('result');
-        result.textContent = ((S * h * q)/1000 + Q2 + Q3)
+        let resulttxt = ((S * h * q)/1000 + Q2 + Q3)
+        result.textContent = (Math.round((resulttxt * .95 ) * 100) / 100) + " - " + (Math.round((resulttxt * 1.15 )* 100) / 100) + " Вт"
+        let btu = document.getElementById('btu');
+        let btutxt = ((S * h * q)/1000 + Q2 + Q3) * 3.41;
+        btu.textContent = (Math.round((btutxt * .95 ) * 100) / 100) + " - " + (Math.round((btutxt * 1.15 )* 100) / 100) + " BTU/час";
     } else {
         alert("Заполните все поля!")
     }
 }
+
